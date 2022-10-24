@@ -1,13 +1,14 @@
-const FormToDoDate = ({setDate}) => {
+const FormToDoDate = ({setDate, now}) => {
+
     return ( 
         <div className="formToDoDate">
             <form>
                 <input 
                 type="date"
-                placeholder="Add a task"
-                onChange = {(e) => setDate(e.target.value)}
-                required
                 className="date"
+                value={now}
+                onChange = {(e) => setDate(e.target.value)}
+                
                 />
                 
             </form>

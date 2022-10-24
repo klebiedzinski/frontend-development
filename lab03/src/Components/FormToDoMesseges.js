@@ -1,7 +1,16 @@
-const FormToDoMesseges = () => {
+
+
+const FormToDoMesseges = ({msgs}) => {
+
     return ( 
         <div className="formToDoMesseges">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, maiores!
+            {msgs.map(msg => {
+                return (
+                    <div className="msg" key={msg.key}>
+                        {msg.msg}
+                    </div>
+                );
+            })}
         </div>
      );
 }

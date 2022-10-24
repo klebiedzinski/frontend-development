@@ -2,7 +2,7 @@ const FormToDoItem = ({setTask}) => {
     return ( 
         <div className="formToDoItem">
             <form>
-                <textarea 
+                <input
                 type="text"
                 placeholder="Add a task"
                 required

@@ -3,6 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(167, 182, 183, 0.2470588235);
 }
 
 code {
@@ -11,25 +12,85 @@ code {
 
 .App {
   max-width: 700px;
-  border: 1px solid black;
   margin-inline: auto;
 }
 
 .tasksList .task {
-  border: 1px solid black;
+  border-radius: 1%;
+  box-shadow: 1px 1px 3px;
+  padding-block: 5px;
+  margin-block: 20px;
+  font-family: inherit;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+}
+.tasksList .task:hover {
+  background: #ddd;
+}
+.tasksList .task h2, .tasksList .task p {
+  color: rgb(64, 63, 63);
 }
 
-.toDoForm .formToDoItem {
-  border: 1px solid brown;
-  text-align: center;
+.toDoForm {
+  margin-top: 50px;
 }
-.toDoForm .formToDoDate {
-  border: 1px solid blue;
-  text-align: center;
+.toDoForm .grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
-.toDoForm .button {
-  border: 1px solid black;
+.toDoForm .grid input {
+  font-family: inherit;
+  font-size: inherit;
+  width: 30rem;
+  height: 1.5rem;
+  margin: 0;
+  padding: 5px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  resize: vertical;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 1px 1px 3px;
+}
+.toDoForm .grid .formToDoItem {
+  text-align: center;
+  grid-row: 1;
+  grid-column: 1;
+}
+.toDoForm .grid .formToDoDate {
+  text-align: center;
+  grid-row: 2;
+  grid-column: 1;
+  display: flex;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+.toDoForm .grid .button {
+  grid-column: 2;
+  grid-row: 1/span 2;
+  margin: auto;
+}
+.toDoForm .grid .button button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(7, 34, 15);
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 15%;
+}
+.toDoForm .grid .button button:hover {
+  background-color: rgb(118, 220, 30);
 }
 .toDoForm .formToDoMesseges {
-  border: 1px solid red;
+  margin-top: 10px;
+}
+.toDoForm .formToDoMesseges .msg {
+  margin-block: 10px;
 }/*# sourceMappingURL=index.css.map */
