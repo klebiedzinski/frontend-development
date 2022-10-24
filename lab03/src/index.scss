@@ -17,7 +17,10 @@ body {
     margin-inline: auto;
   }
  .tasksList{
-     .task{
+     .unchecked_task, .checked_task{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         border-radius: 1%;
         box-shadow:1px 1px 3px;
         padding-block: 5px;
@@ -31,12 +34,42 @@ body {
         &:hover{
           background: #ddd;
         }
+        .task_content{
+          h2,p{
+            color: rgb(64, 63, 63);
+          }
+        }
+        button{
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          border: None;
+          background-color: #eee;
+          margin: 5px;
+          &:hover{
+            box-shadow: 2px 2px 2px;
+            transition: 0.1s;
+            cursor:auto;
 
-        h2,p{
-          color: rgb(64, 63, 63);
+          }
+          img{
+            margin: auto;
+            width: 15px;
+            height: 15px;
+          }
         }
      }
-    
+     .checked_task{
+        background-color: #494d4a;
+          &:hover{
+            background-color: lighten($color: #494d4a, $amount: 10);
+          }
+          button{
+            background-color: #494d4a;
+
+          }
+     }
  }
  .toDoForm{
   margin-top: 50px;
@@ -78,7 +111,7 @@ body {
         
       
         button {
-          background-color: #4CAF50; /* Green */
+          background-color: #4CAF50; 
           border: none;
           color: white;
           padding: 15px 32px;
@@ -104,6 +137,8 @@ body {
     }
     
  }
+
+
 
   
   

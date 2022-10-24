@@ -15,7 +15,10 @@ code {
   margin-inline: auto;
 }
 
-.tasksList .task {
+.tasksList .unchecked_task, .tasksList .checked_task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 1%;
   box-shadow: 1px 1px 3px;
   padding-block: 5px;
@@ -27,11 +30,39 @@ code {
   font-size: 18px;
   transition: 0.2s;
 }
-.tasksList .task:hover {
+.tasksList .unchecked_task:hover, .tasksList .checked_task:hover {
   background: #ddd;
 }
-.tasksList .task h2, .tasksList .task p {
+.tasksList .unchecked_task .task_content h2, .tasksList .unchecked_task .task_content p, .tasksList .checked_task .task_content h2, .tasksList .checked_task .task_content p {
   color: rgb(64, 63, 63);
+}
+.tasksList .unchecked_task button, .tasksList .checked_task button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  border: None;
+  background-color: #eee;
+  margin: 5px;
+}
+.tasksList .unchecked_task button:hover, .tasksList .checked_task button:hover {
+  box-shadow: 2px 2px 2px;
+  transition: 0.1s;
+  cursor: auto;
+}
+.tasksList .unchecked_task button img, .tasksList .checked_task button img {
+  margin: auto;
+  width: 15px;
+  height: 15px;
+}
+.tasksList .checked_task {
+  background-color: #494d4a;
+}
+.tasksList .checked_task:hover {
+  background-color: #626763;
+}
+.tasksList .checked_task button {
+  background-color: #494d4a;
 }
 
 .toDoForm {
@@ -74,7 +105,7 @@ code {
   margin: auto;
 }
 .toDoForm .grid .button button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 15px 32px;

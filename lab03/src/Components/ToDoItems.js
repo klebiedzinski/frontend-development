@@ -1,16 +1,8 @@
 import { useState } from "react";
 import ToDoForm from "./ToDoForm";
+import bin from "../Images/rubbish-bin.svg"
+import check from "../Images/check.svg"
 const ToDoItems = () => {
-    const [todolist, setTodolist] = useState([
-        {task: "clean", date: "20-10-2002", key: 1},
-        {task: "clean", date: "20-10-2002", key: 2},
-        {task: "clean", date: "20-10-2002", key: 3}
-    ])
-
-
-
-    const [msgs, setMsgs] = useState([]);
-    
     const now_string = () => {
         const now = new Date()
         const nowyear = now.getFullYear().toString();
@@ -22,12 +14,15 @@ const ToDoItems = () => {
     const is_today_or_later = (date,now) => {
         return new Date(date)>=new Date(now);
     }
+
+    const [todolist, setTodolist] = useState([])
+    const [msgs, setMsgs] = useState([]);
     const [task, setTask] = useState('');
     const [date, setDate] = useState(now_string());
     const handleClick = () => {
         if (task !== ""){
             if (is_today_or_later(date,now_string())){
-                 const newList = [...todolist,{task: task, date: date, key: todolist.length+1}]
+                 const newList = [...todolist,{task: task, date: date,checked: false, key: todolist.length+1}]
                  setTodolist(newList)
                  setMsgs([])
             }
@@ -41,22 +36,53 @@ const ToDoItems = () => {
             setMsgs(newmsgs);
         }
     }
+    const handleDelete = (key) => {
+        setTodolist(todolist.filter(todo => todo.key !== key))
+    }
+    
+    const handleChecked = (key) => {
+        const newtodolist = todolist.map(todo => {
+            if (todo.key === key){
+                return {
+                    task: todo.task,
+                    date: todo.date,
+                    checked: !todo.checked,
+                    key: todo.key
+                }
+            }
+            else{
+                return todo;
+            }
+            
+        }).sort(el => el.checked)
+        setTodolist(newtodolist);
+    }
+    
     
     return ( 
+        
         <div className="container">
+            <ToDoForm handleClick={handleClick} setTask={setTask} setDate = {setDate} msgs = {msgs} now={date}/>
             <div className="tasksList">
                 {todolist.map(todo => {
+                
                     return (
-                    <div className="task" key={todo.key}>
+                    <div className={todo.checked ? "checked_task" : "unchecked_task"}  key={todo.key}>
+                        <div className="task_content">
                         <h2>{todo.task}</h2>
                         <p>{todo.date}</p>
+                        </div>
+                    <div className="btns">
+                    <button onClick={() => handleChecked(todo.key)}> <img src={check} alt="check" /> </button>
+                    <button onClick={() => handleDelete(todo.key)}> <img src={bin} alt = "bin"/> </button>
+                    </div>
                     </div>
                     );
                 })}
             </div>
 
 
-            <ToDoForm handleClick={handleClick} setTask={setTask} setDate = {setDate} msgs = {msgs} now={date}/>
+
         </div>    
      );
 }
