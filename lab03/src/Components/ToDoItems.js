@@ -8,7 +8,7 @@ const ToDoItems = () => {
     const [msgs, setMsgs] = useState([]);
     const [task, setTask] = useState('');
     const [date, setDate] = useState(now_string());
-    const handleSubmit = () => {
+    const handleSubmitNewTask = () => {
         if (task !== ""){
             if (is_today_or_later(date,now_string())){
                  const newList = [...todolist,{task: task, date: date,checked: false, key: todolist.length+1}]
@@ -49,7 +49,7 @@ const ToDoItems = () => {
     return ( 
         
         <div className="container">
-            <ToDoForm handleSubmit={handleSubmit} setTask={setTask} setDate = {setDate} msgs = {msgs} now={date}/>
+            <ToDoForm handleSubmitNewTask={handleSubmitNewTask} setTask={setTask} setDate = {setDate} msgs = {msgs} now={date}/>
             <div className="tasksList">
                 {todolist.map(todo => (
                     <div className={todo.checked ? "checked_task" : "unchecked_task"}  key={todo.key}>
