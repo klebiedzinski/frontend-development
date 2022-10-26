@@ -2,9 +2,7 @@ import FormToDoDate from "./FormToDoDate";
 import FormToDoItem from "./FormToDoItem";
 import FormToDoMesseges from "./FormToDoMesseges";
 
-const ToDoForm = ({handleSubmitNewTask, setDate, setTask, msgs, now}) => {
-
-    return ( 
+const ToDoForm = ({handleSubmitNewTask, setDate, setTask, msgs, now}) => ( 
         <div className="toDoForm">
             <div className="grid">
             <FormToDoItem setTask={setTask} />
@@ -16,6 +14,6 @@ const ToDoForm = ({handleSubmitNewTask, setDate, setTask, msgs, now}) => {
             <FormToDoMesseges msgs={msgs}/>
         </div>
      );
-}
+
  
 export default ToDoForm;

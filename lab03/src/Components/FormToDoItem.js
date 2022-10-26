@@ -1,5 +1,4 @@
-const FormToDoItem = ({setTask}) => {
-    return ( 
+const FormToDoItem = ({setTask}) =>( 
         <div className="formToDoItem">
             <form>
                 <input
@@ -13,6 +12,6 @@ const FormToDoItem = ({setTask}) => {
             </form>
         </div>
      );
-}
+
  
 export default FormToDoItem;

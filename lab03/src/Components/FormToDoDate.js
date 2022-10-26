@@ -1,6 +1,4 @@
-const FormToDoDate = ({setDate, now}) => {
-
-    return ( 
+const FormToDoDate = ({setDate, now}) => ( 
         <div className="formToDoDate">
             <form>
                 <input 
@@ -14,6 +12,6 @@ const FormToDoDate = ({setDate, now}) => {
             </form>
         </div>
      );
-}
+
  
 export default FormToDoDate;

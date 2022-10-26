@@ -1,9 +1,6 @@
 
 
-const FormToDoMesseges = ({msgs}) => {
-
-    
-    return ( 
+const FormToDoMesseges = ({msgs}) => ( 
         <div className="formToDoMesseges">
             {msgs.map(msg => {
                 return (
@@ -14,6 +11,6 @@ const FormToDoMesseges = ({msgs}) => {
             })}
         </div>
      );
-}
+
  
 export default FormToDoMesseges;

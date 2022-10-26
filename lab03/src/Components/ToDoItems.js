@@ -2,7 +2,7 @@ import { useState } from "react";
 import ToDoForm from "./ToDoForm";
 import bin from "../Images/rubbish-bin.svg"
 import check from "../Images/check.svg"
-import { now_string, is_today_or_later } from "../Functions/time_functions";
+import { now_string, is_today_or_later } from "../Utilities/time";
 const ToDoItems = () => {
     const [todolist, setTodolist] = useState([])
     const [msgs, setMsgs] = useState([]);
@@ -30,18 +30,8 @@ const ToDoItems = () => {
     }
     
     const handleChecked = (key) => {
-        const newtodolist = todolist.map(todo => {
-            if (todo.key === key){
-                return {
-                    task: todo.task,
-                    date: todo.date,
-                    checked: !todo.checked,
-                    key: todo.key
-                }
-            }
-            return todo
-            
-        }).sort(el => el.checked)
+        const newtodolist = todolist.map(todo => (todo.key === key) ? {task: todo.task,date: todo.date,checked: !todo.checked,key: todo.key} : todo)
+            .sort(el => el.checked)
         setTodolist(newtodolist);
     }
     
