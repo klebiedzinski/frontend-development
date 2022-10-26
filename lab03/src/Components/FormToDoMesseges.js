@@ -1,5 +1,4 @@
 
-
 const FormToDoMesseges = ({msgs}) => ( 
         <div className="formToDoMesseges">
             {msgs.map(msg => (

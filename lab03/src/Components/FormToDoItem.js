@@ -8,7 +8,6 @@ const FormToDoItem = ({setTask}) =>(
                 onChange = {(e) => setTask(e.target.value)}
                 className = "item"
                 />
-                
             </form>
         </div>
      );
