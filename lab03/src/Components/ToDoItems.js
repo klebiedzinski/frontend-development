@@ -2,24 +2,13 @@ import { useState } from "react";
 import ToDoForm from "./ToDoForm";
 import bin from "../Images/rubbish-bin.svg"
 import check from "../Images/check.svg"
+import { now_string, is_today_or_later } from "../Functions/time_functions";
 const ToDoItems = () => {
-    const now_string = () => {
-        const now = new Date()
-        const nowyear = now.getFullYear().toString();
-        const nowmonth = Number(now.getMonth()+1).toString();
-        const nowday = now.getDate().toString();
-        const nowDate = nowyear.concat('-',nowmonth).concat('-',nowday);
-        return nowDate;
-    }
-    const is_today_or_later = (date,now) => {
-        return new Date(date)>=new Date(now);
-    }
-
     const [todolist, setTodolist] = useState([])
     const [msgs, setMsgs] = useState([]);
     const [task, setTask] = useState('');
     const [date, setDate] = useState(now_string());
-    const handleClick = () => {
+    const handleSubmit = () => {
         if (task !== ""){
             if (is_today_or_later(date,now_string())){
                  const newList = [...todolist,{task: task, date: date,checked: false, key: todolist.length+1}]
@@ -50,9 +39,7 @@ const ToDoItems = () => {
                     key: todo.key
                 }
             }
-            else{
-                return todo;
-            }
+            return todo
             
         }).sort(el => el.checked)
         setTodolist(newtodolist);
@@ -62,11 +49,9 @@ const ToDoItems = () => {
     return ( 
         
         <div className="container">
-            <ToDoForm handleClick={handleClick} setTask={setTask} setDate = {setDate} msgs = {msgs} now={date}/>
+            <ToDoForm handleSubmit={handleSubmit} setTask={setTask} setDate = {setDate} msgs = {msgs} now={date}/>
             <div className="tasksList">
-                {todolist.map(todo => {
-                
-                    return (
+                {todolist.map(todo => (
                     <div className={todo.checked ? "checked_task" : "unchecked_task"}  key={todo.key}>
                         <div className="task_content">
                         <h2>{todo.task}</h2>
@@ -77,12 +62,8 @@ const ToDoItems = () => {
                     <button onClick={() => handleDelete(todo.key)}> <img src={bin} alt = "bin"/> </button>
                     </div>
                     </div>
-                    );
-                })}
+                ))}
             </div>
-
-
-
         </div>    
      );
 }
