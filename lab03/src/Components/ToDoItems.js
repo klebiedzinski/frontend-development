@@ -3,6 +3,7 @@ import ToDoForm from "./ToDoForm";
 import bin from "../Images/rubbish-bin.svg"
 import check from "../Images/check.svg"
 import { now_string, is_today_or_later } from "../Utilities/time";
+
 const ToDoItems = () => {
     const [todolist, setTodolist] = useState([])
     const [msgs, setMsgs] = useState([]);
@@ -25,6 +26,7 @@ const ToDoItems = () => {
             setMsgs(newmsgs);
         }
     }
+
     const handleDelete = (key) => {
         setTodolist(todolist.filter(todo => todo.key !== key))
     }
@@ -37,7 +39,6 @@ const ToDoItems = () => {
     
     
     return ( 
-        
         <div className="container">
             <ToDoForm handleSubmitNewTask={handleSubmitNewTask} setTask={setTask} setDate = {setDate} msgs = {msgs} now={date}/>
             <div className="tasksList">

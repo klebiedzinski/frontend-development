@@ -6,9 +6,7 @@ const FormToDoDate = ({setDate, now}) => (
                 className="date"
                 value={now}
                 onChange = {(e) => setDate(e.target.value)}
-                
                 />
-                
             </form>
         </div>
      );
