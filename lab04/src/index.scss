@@ -1,0 +1,18 @@
+.productsItems{
+    margin-inline: auto;
+
+}
+.productsList{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .product{
+        flex-basis: 50%;
+    }
+   img{
+    width: 200px;
+   }
+}
