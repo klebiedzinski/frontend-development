@@ -2,17 +2,32 @@
     margin-inline: auto;
 
 }
-.productsList{
-    
+.productsContainer{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+}
+.productsCategories{
+    width: 25%;
+}
+.productsList{
+    width: 75%;
+    display: flex;
     flex-wrap: wrap;
+    background-color: #F6F6F6;
+    justify-content: space-around;
 
     .product{
-        flex-basis: 50%;
+        margin-block: 1rem;
+        border: 1px solid black;
+        flex-basis: 30%;
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+
+        .productInfo{
+            border: 1px solid black;
+        }
     }
    img{
-    width: 200px;
+    width: 100%;
    }
 }
