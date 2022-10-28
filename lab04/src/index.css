@@ -9,6 +9,27 @@
 .productsCategories {
   width: 25%;
 }
+.productsCategories .categories {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.productsCategories button {
+  width: 100%;
+  margin-inline: auto;
+  border: none;
+  background-color: inherit;
+  margin-block: 1%;
+  padding: 10%;
+}
+.productsCategories button:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+  transition: 600ms;
+}
+.productsCategories .add_button button {
+  font-weight: bold;
+}
 
 .productsList {
   width: 75%;
@@ -18,16 +39,55 @@
   justify-content: space-around;
 }
 .productsList .product {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 40%;
   margin-block: 1rem;
-  border: 1px solid black;
   flex-basis: 30%;
-  width: 30%;
   display: flex;
   justify-content: space-between;
 }
-.productsList .product .productInfo {
-  border: 1px solid black;
+.productsList .product:hover {
+  background-color: lightgrey;
+  transition: 200ms;
 }
-.productsList img {
+.productsList .product:hover .img-outer {
+  margin: 2rem;
+  transition: all 100ms linear;
+}
+.productsList .product .img-outer {
+  margin: 1.8rem;
+  display: flex;
+  align-items: center;
+  width: 67%;
+  overflow: hidden;
+  background-color: white;
+}
+.productsList .product .img-outer .img {
+  display: inline-block;
+  position: relative;
+  right: -50%;
+}
+.productsList .product .img-outer .img img {
+  position: relative;
+  left: -50%;
   width: 100%;
+}
+.productsList .product .productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40%;
+}
+.productsList .product .productInfo p {
+  font-size: smaller;
+}
+@media only screen and (max-width: 820px) {
+  .productsList .product {
+    flex-basis: 40%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .productsList .product {
+    flex-basis: 100%;
+  }
 }/*# sourceMappingURL=index.css.map */

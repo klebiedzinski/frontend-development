@@ -1,42 +1,44 @@
-import axios from 'axios';
-import {useEffect, useState} from 'react';
-const _ = require("lodash")
+import { useState } from 'react';
 
-const ProductsList = () => {
-    const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([])
-    useEffect(() => {
-        axios
-            .get('https://fakestoreapi.com/products/')
-            .then(res => {
-                const products_with_id = res.data
-                setProducts(products_with_id);
-                const newCategories = _uniqBy(products, "category")
-                console.log(newCategories)
-            })
-        
-    },[])
+const ProductsList = ({categories, products}) => {
+
+    const [selectedCategory, setSelectedCategory] = useState("all")
+
+
+    const handleCategorySelector = (category) => {
+        setSelectedCategory(category.category)
+    }
+
     return ( 
         <div className="productsContainer">
-            <div className="productsCategories">
-                {products.map(product => (
-                    <div className="category">
-                        <h3>{product.category}</h3>
+
+            <div className="productsCategories" >
+                    <div className="categories">
+                    {categories.map(category => (
+                        <div className="category" key={category.key}>
+                            <button onClick={() => handleCategorySelector(category)}>{category.category}</button>
+                        </div>
+                    ))}
+                        <div className="add_button">
+                            <button>Add a product</button>
+                        </div>
+                    </div>
+            </div>
+            <div className="productsList">
+                {products.filter(product => selectedCategory==="all" ? product : product.category===selectedCategory)
+                .map(product => (
+                    <div className="product" key={product.id}>
+                        <div className="img-outer">
+                            <div className="img"><img src={product.image} alt="product-img"></img></div>
+                        </div>
+                        <div className="productInfo">
+                            <div className="title"><p>{product.title}</p></div>
+                            <div className="category"><p>{product.category}</p></div>
+                            <div className="price"><p>{product.price}</p></div>
+                        </div>
                     </div>
                 ))}
-            </div>
-        <div className="productsList">
-            {products.map(product => (
-                <div className="product" key={product.id}>
-                    <img src={product.image} alt="product-img"></img>
-                    <div className="productInfo">
-                    <h1>{product.title}</h1>
-                    <h2>{product.category}</h2>
-                    <h5>{product.price}</h5>
-                    </div>
-                </div>
-            ))}
-        </div> 
+            </div> 
         </div>
         );
 }
