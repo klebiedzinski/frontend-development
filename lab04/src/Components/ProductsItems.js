@@ -2,6 +2,7 @@ import ProductsList from "./ProductsList";
 import uniqBy from "lodash/uniqBy"
 import { useState, useEffect } from "react";
 import axios from "axios";
+import AddProductForm from "./AddProductForm";
 const ProductsItems = () => {
 
     const [products, setProducts] = useState(null);

@@ -13,6 +13,7 @@
         top: 0;
     }
     button{
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         width: 100%;
         margin-inline: auto;
         border: none;
@@ -28,6 +29,15 @@
     }
     .add_button button{
         font-weight: bold;
+        font-size: 2ch;
+    }
+    .add_button{
+        // position:fixed;
+        // bottom: 0;
+        // vertical-align: baseline;
+        // width: 24%;
+        // margin-bottom: 2vh;
+
     }
 }
 .productsList{
@@ -90,4 +100,19 @@
 
     }
 
+}
+
+.add_form{
+    display: none;
+    width: 100vw;
+    form{
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        width: 22%;
+
+        input{
+            margin-block: 1vh;
+        }
+    }
 }

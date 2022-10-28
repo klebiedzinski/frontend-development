@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import AddProductForm from './AddProductForm';
 const ProductsList = ({categories, products}) => {
 
     const [selectedCategory, setSelectedCategory] = useState("all")
@@ -19,6 +19,9 @@ const ProductsList = ({categories, products}) => {
                             <button onClick={() => handleCategorySelector(category)}>{category.category}</button>
                         </div>
                     ))}
+
+                        <AddProductForm/>
+
                         <div className="add_button">
                             <button>Add a product</button>
                         </div>
