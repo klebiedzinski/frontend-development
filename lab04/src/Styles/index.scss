@@ -12,32 +12,37 @@
         position: sticky;
         top: 0;
     }
-    button{
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    .category{
         width: 100%;
-        margin-inline: auto;
-        border: none;
-        background-color: inherit;
-        margin-block: 1%;
-        padding: 10%;
         &:hover{
             background-color: lightgrey;
             cursor: pointer;
             transition: 600ms;
         }
+    }
+    button{
+        // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        // width: 100%;
+        // margin-inline: auto;
+        width: 100%;
+        border: none;
+        background-color: inherit;
+        margin-block: 1%;
+        padding: 3%;
         
     }
-    .add_button button{
-        font-weight: bold;
-        font-size: 2ch;
-    }
     .add_button{
-        // position:fixed;
-        // bottom: 0;
-        // vertical-align: baseline;
-        // width: 24%;
-        // margin-bottom: 2vh;
-
+        display: flex;
+        justify-content: center;
+        button{
+            font-weight: bold;
+            font-size: 2ch;
+        }
+       
+    }
+    .add_button:hover{
+       background-color: bisque;
+       transition: 700ms;
     }
 }
 .productsList{
@@ -103,16 +108,34 @@
 }
 
 .add_form{
-    display: none;
-    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     form{
-        border: 1px solid red;
         display: flex;
         flex-direction: column;
-        width: 22%;
+        width: 80%;
+        margin-inline: auto;
 
         input{
             margin-block: 1vh;
         }
+    }
+    button{
+        width: 50%;
+        margin-inline: auto;
+        // background: #0066A2;
+        color: black;
+        // border-style: outset;
+        // border-color: #0066A2;
+        font: arial,sans-serif;
+        text-shadow: none;
+        &:hover{
+            box-shadow: rgba(56, 49, 49, 0.1) 4px 8px 16px;
+            background: rgb(33, 140, 140);
+            border-color: rgb(33, 140, 140);
+
+            transition: 300ms;
+    }
     }
 }

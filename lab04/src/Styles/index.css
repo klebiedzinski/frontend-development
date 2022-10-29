@@ -14,24 +14,34 @@
   position: sticky;
   top: 0;
 }
-.productsCategories button {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+.productsCategories .category {
   width: 100%;
-  margin-inline: auto;
-  border: none;
-  background-color: inherit;
-  margin-block: 1%;
-  padding: 10%;
 }
-.productsCategories button:hover {
+.productsCategories .category:hover {
   background-color: lightgrey;
   cursor: pointer;
   transition: 600ms;
+}
+.productsCategories button {
+  width: 100%;
+  border: none;
+  background-color: inherit;
+  margin-block: 1%;
+  padding: 3%;
+}
+.productsCategories .add_button {
+  display: flex;
+  justify-content: center;
 }
 .productsCategories .add_button button {
   font-weight: bold;
   font-size: 2ch;
 }
+.productsCategories .add_button:hover {
+  background-color: bisque;
+  transition: 700ms;
+}
+
 .productsList {
   width: 75%;
   display: flex;
@@ -94,15 +104,29 @@
 }
 
 .add_form {
-  display: none;
-  width: 100vw;
-}
-.add_form form {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  width: 22%;
+  width: 100%;
+}
+.add_form form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-inline: auto;
 }
 .add_form form input {
   margin-block: 1vh;
+}
+.add_form button {
+  width: 50%;
+  margin-inline: auto;
+  color: black;
+  font: arial, sans-serif;
+  text-shadow: none;
+}
+.add_form button:hover {
+  box-shadow: rgba(56, 49, 49, 0.1) 4px 8px 16px;
+  background: rgb(33, 140, 140);
+  border-color: rgb(33, 140, 140);
+  transition: 300ms;
 }/*# sourceMappingURL=index.css.map */

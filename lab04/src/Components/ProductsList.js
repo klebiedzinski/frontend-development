@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import AddProductForm from './AddProductForm';
-const ProductsList = ({categories, products}) => {
+const ProductsList = ({categories, products, setProducts}) => {
 
     const [selectedCategory, setSelectedCategory] = useState("all")
+    const [addProductClicked, setAddProductClicked] = useState(false)
 
 
     const handleCategorySelector = (category) => {
@@ -20,11 +21,11 @@ const ProductsList = ({categories, products}) => {
                         </div>
                     ))}
 
-                        <AddProductForm/>
-
                         <div className="add_button">
-                            <button>Add a product</button>
+                            <button onClick={() => setAddProductClicked(!addProductClicked)}>Add a product</button>
                         </div>
+                        {addProductClicked && <AddProductForm setProducts={setProducts} products={products}/>}
+
                     </div>
             </div>
             <div className="productsList">

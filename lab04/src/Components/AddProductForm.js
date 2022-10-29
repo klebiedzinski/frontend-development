@@ -1,13 +1,12 @@
 import axios from "axios"
 import { useState } from "react"
-const AddProductForm = () => {
+const AddProductForm = ({setProducts,products}) => {
     
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
     const [category, setCategory] = useState('')
-
     const handleSubmitNewProduct = () => {
         const product = {
                 title: title,
@@ -17,6 +16,11 @@ const AddProductForm = () => {
                 category: category
             }
         axios.post('https://fakestoreapi.com/products',product)
+                .then(data => {console.log(data); 
+                    data.status === 200 ? setProducts([...products, data.data]) : console.log("Invalid data status")
+                })
+                .catch(err => console.log(err))
+
         
     }
     return ( 
@@ -27,39 +31,34 @@ const AddProductForm = () => {
                     placeholder="Title"
                     required
                     onChange = {(e) => setTitle(e.target.value)}
-                    className = "item"
                 />
                 <input
                     type="text"
                     placeholder="price"
                     required
                     onChange = {(e) => setPrice(e.target.value)}
-                    className = "item"
                 />
                 <input
                     type="text"
                     placeholder="description"
                     required
                     onChange = {(e) => setDescription(e.target.value)}
-                    className = "item"
                 />
                 <input
                     type="text"
                     placeholder="image"
                     required
                     onChange = {(e) => setImage(e.target.value)}
-                    className = "item"
                 />
                 <input
                     type="text"
                     placeholder="category"
                     required
                     onChange = {(e) => setCategory(e.target.value)}
-                    className = "item"
                 />
 
-                <input type="submit" value="Submit" onClick={handleSubmitNewProduct}/>
             </form>
+                <button onClick={() => handleSubmitNewProduct()}> Submit </button> 
         </div>
      );
 }

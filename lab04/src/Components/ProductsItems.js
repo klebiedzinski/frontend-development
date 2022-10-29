@@ -2,12 +2,12 @@ import ProductsList from "./ProductsList";
 import uniqBy from "lodash/uniqBy"
 import { useState, useEffect } from "react";
 import axios from "axios";
-import AddProductForm from "./AddProductForm";
 const ProductsItems = () => {
 
     const [products, setProducts] = useState(null);
     const [categories, setCategories] = useState([])
     const [dataPending, setDataPending] = useState(true)
+
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products/')
             .then(res => {
@@ -22,7 +22,7 @@ const ProductsItems = () => {
                                 key: index+1
                             }
                         })
-                    setCategories([{category: "all", key: newCategories.length+1},...newCategories, ]);
+                    setCategories([{category: "all", key: newCategories.length+1} ,...newCategories, ]);
                     setDataPending(false)
                 }
                 else console.log("data status not ok")
@@ -32,8 +32,8 @@ const ProductsItems = () => {
 
     return ( 
         <div className="productsItems">
-            {dataPending && <div>Getting some data ...</div>}
-            {products && <ProductsList products={products} categories={categories}/>}
+            {dataPending && <div>Getting data ...</div>}
+            {products && <ProductsList products={products} categories={categories} setProducts={setProducts} />}
         </div>
      );
 }
