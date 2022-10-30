@@ -1,12 +1,14 @@
-import axios from "axios"
-import { useState } from "react"
-const AddProductForm = ({setProducts,products}) => {
-    
-    const [title, setTitle] = useState('')
-    const [price, setPrice] = useState('')
-    const [description, setDescription] = useState('')
-    const [image, setImage] = useState('')
-    const [category, setCategory] = useState('')
+import axios from "axios";
+import { useState } from "react";
+import includes  from "lodash/includes";
+const AddProductForm = ({setProducts,products, setCategories, categories}) => {
+
+    const [title, setTitle] = useState('');
+    const [price, setPrice] = useState('');
+    const [description, setDescription] = useState('');
+    const [image, setImage] = useState("https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg");
+    const [category, setCategory] = useState('');
+
     const handleSubmitNewProduct = () => {
         const product = {
                 title: title,
@@ -14,17 +16,35 @@ const AddProductForm = ({setProducts,products}) => {
                 description: description,
                 image: image,
                 category: category
-            }
+            };
+
         axios.post('https://fakestoreapi.com/products',product)
-                .then(data => {console.log(data); 
-                    data.status === 200 ? setProducts([...products, data.data]) : console.log("Invalid data status")
+                .then(data => {
+                    console.log(data); 
+                    if (data.status === 200){
+                        setProducts([...products, data.data]) 
+                        const categoriesValues = categories.map(cat => cat.category)
+                        if(!includes(categoriesValues,category)) setCategories([...categories,{category: category, key:categories.lenght+1}])
+                    }
+                    else console.log("Error data status");
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err));
+        // image.current.value='';
+        // category.current.value='';
+        // description.current.value='';
+        // title.current.value='';
+        // price.current.value=0;
+        // setTitle('');
+        // setPrice('');
+        // setDescription('');
+        // setCategory('');
+        // setImage('');
 
         
     }
     return ( 
         <div className="add_form">
+
             <form>
                 <input
                     type="text"
@@ -33,7 +53,7 @@ const AddProductForm = ({setProducts,products}) => {
                     onChange = {(e) => setTitle(e.target.value)}
                 />
                 <input
-                    type="text"
+                    type="number"
                     placeholder="price"
                     required
                     onChange = {(e) => setPrice(e.target.value)}
@@ -45,9 +65,10 @@ const AddProductForm = ({setProducts,products}) => {
                     onChange = {(e) => setDescription(e.target.value)}
                 />
                 <input
-                    type="text"
+                    type="url"
                     placeholder="image"
                     required
+                    value={image}
                     onChange = {(e) => setImage(e.target.value)}
                 />
                 <input
@@ -58,7 +79,9 @@ const AddProductForm = ({setProducts,products}) => {
                 />
 
             </form>
-                <button onClick={() => handleSubmitNewProduct()}> Submit </button> 
+
+            <button onClick={() => handleSubmitNewProduct()}> Submit </button> 
+
         </div>
      );
 }

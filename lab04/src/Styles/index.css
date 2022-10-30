@@ -1,3 +1,7 @@
+body {
+  background-color: #F6F6F6;
+}
+
 .productsItems {
   margin-inline: auto;
 }
@@ -14,9 +18,6 @@
   position: sticky;
   top: 0;
 }
-.productsCategories .category {
-  width: 100%;
-}
 .productsCategories button {
   width: 100%;
   border: none;
@@ -29,17 +30,9 @@
   cursor: pointer;
   transition: 600ms;
 }
-.productsCategories .add_button {
-  display: flex;
-  justify-content: center;
-}
 .productsCategories .add_button button {
   font-weight: bold;
   font-size: 2ch;
-}
-.productsCategories .add_button:hover {
-  background-color: bisque;
-  transition: 700ms;
 }
 
 .productsList {
@@ -50,6 +43,7 @@
   justify-content: space-around;
 }
 .productsList .product {
+  min-height: 80vh;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   margin-block: 2%;
   flex-basis: 30%;
@@ -72,6 +66,7 @@
   transition: all 100ms linear;
 }
 .productsList .product .img-outer {
+  background-color: white;
   height: 70%;
   margin: 7%;
   overflow: hidden;
@@ -140,4 +135,10 @@
   background: rgb(33, 140, 140);
   border-color: rgb(33, 140, 140);
   transition: 300ms;
+}
+
+.loading {
+  font-size: large;
+  text-align: center;
+  margin-block: 40vh;
 }/*# sourceMappingURL=index.css.map */
