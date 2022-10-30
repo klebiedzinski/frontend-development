@@ -17,17 +17,17 @@
 .productsCategories .category {
   width: 100%;
 }
-.productsCategories .category:hover {
-  background-color: lightgrey;
-  cursor: pointer;
-  transition: 600ms;
-}
 .productsCategories button {
   width: 100%;
   border: none;
   background-color: inherit;
-  margin-block: 1%;
-  padding: 3%;
+  margin-block: 2%;
+  padding: 2%;
+}
+.productsCategories button:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+  transition: 600ms;
 }
 .productsCategories .add_button {
   display: flex;
@@ -51,43 +51,41 @@
 }
 .productsList .product {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  width: 40%;
-  margin-block: 1rem;
+  margin-block: 2%;
   flex-basis: 30%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+.productsList .product p {
+  color: gray;
+}
+.productsList .product .title p {
+  color: black;
 }
 .productsList .product:hover {
   background-color: lightgrey;
   transition: 200ms;
 }
 .productsList .product:hover .img-outer {
-  margin: 2rem;
+  margin: 5%;
   transition: all 100ms linear;
 }
 .productsList .product .img-outer {
-  margin: 1.8rem;
-  display: flex;
-  align-items: center;
-  width: 67%;
+  height: 70%;
+  margin: 7%;
   overflow: hidden;
-  background-color: white;
+  display: grid;
+  align-items: center;
 }
 .productsList .product .img-outer .img {
   display: inline-block;
-  position: relative;
-  right: -50%;
 }
 .productsList .product .img-outer .img img {
-  position: relative;
-  left: -50%;
   width: 100%;
 }
 .productsList .product .productInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 40%;
+  margin: 7%;
 }
 .productsList .product .productInfo p {
   font-size: smaller;
@@ -96,10 +94,22 @@
   .productsList .product {
     flex-basis: 40%;
   }
+  .productsList .product .productInfo {
+    height: 40%;
+  }
+  .productsList .product .img-outer {
+    height: 60%;
+  }
 }
 @media only screen and (max-width: 600px) {
   .productsList .product {
     flex-basis: 100%;
+  }
+  .productsList .product .productInfo {
+    height: 20%;
+  }
+  .productsList .product .img-outer {
+    height: 70%;
   }
 }
 
@@ -116,6 +126,7 @@
 }
 .add_form form input {
   margin-block: 1vh;
+  padding: 1%;
 }
 .add_form button {
   width: 50%;

@@ -38,7 +38,7 @@ const ProductsList = ({categories, products, setProducts}) => {
                         <div className="productInfo">
                             <div className="title"><p>{product.title}</p></div>
                             <div className="category"><p>{product.category}</p></div>
-                            <div className="price"><p>{product.price}</p></div>
+                            <div className="price"><p>{product.price} zł</p></div>
                         </div>
                     </div>
                 ))}
