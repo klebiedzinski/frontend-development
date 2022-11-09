@@ -18,7 +18,7 @@ const ProductsList = ({setCategories,categories, products, setProducts}) => {
                         </div>
                     ))}
                         <div className="add_button">
-                            <button onClick={() => setAddProductClicked(!addProductClicked)}>Add a product</button>
+                            <button onClick={() => setAddProductClicked(!addProductClicked)}>Add product</button>
                         </div>
                         {addProductClicked && <AddProductForm setProducts={setProducts} products={products} categories={categories} setCategories={setCategories}/>}
                     </div>

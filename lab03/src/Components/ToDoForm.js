@@ -8,7 +8,7 @@ const ToDoForm = ({handleSubmitNewTask, setDate, setTask, msgs, now}) => (
             <FormToDoItem setTask={setTask} />
             <FormToDoDate setDate={setDate} now={now}/>
             <div className="button">
-            <button onClick={handleSubmitNewTask}>OK</button>
+                <button onClick={handleSubmitNewTask}>OK</button>
             </div>
             </div>
             <FormToDoMesseges msgs={msgs}/>

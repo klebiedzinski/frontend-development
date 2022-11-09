@@ -22,8 +22,8 @@ body {
   width: 100%;
   border: none;
   background-color: inherit;
-  margin-block: 2%;
-  padding: 2%;
+  margin-block: 1%;
+  padding: 1%;
 }
 .productsCategories button:hover {
   background-color: lightgrey;

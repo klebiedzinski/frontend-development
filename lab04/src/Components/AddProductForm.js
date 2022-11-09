@@ -29,18 +29,6 @@ const AddProductForm = ({setProducts,products, setCategories, categories}) => {
                     else console.log("Error data status");
                 })
                 .catch(err => console.log(err));
-        // image.current.value='';
-        // category.current.value='';
-        // description.current.value='';
-        // title.current.value='';
-        // price.current.value=0;
-        // setTitle('');
-        // setPrice('');
-        // setDescription('');
-        // setCategory('');
-        // setImage('');
-
-        
     }
     return ( 
         <div className="add_form">
