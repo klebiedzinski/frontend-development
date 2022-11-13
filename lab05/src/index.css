@@ -1,0 +1,42 @@
+.App{
+    display: grid;
+    justify-content: center;
+    background-color: aliceblue;
+}
+.CommentForm{
+    text-align: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-container{
+    text-align: left;
+}
+input,textarea{
+    margin-top: 0.5rem
+}
+.validation-info{
+    margin: 0;
+    padding: 0;
+    font-size: 0.7rem;
+    color: red;
+}
+.clear-inputs-btn{
+    background-color: rgba(209, 86, 86, 0.842);
+    width: 60px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+.submit-btn{
+    background-color: aliceblue;
+}
+.comment{
+    margin: 1rem;
+    padding: 0;
+}
+.email, .name{
+    margin: 0;
+    padding: 0;
+}
