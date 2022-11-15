@@ -1,1 +1,1 @@
-![Tresc](./Images/zadanie.png)
+![polecenie](https://raw.githubusercontent.com/klebiedzinski/frontend-development/main/lab03/src/Images/zadanie.png)
