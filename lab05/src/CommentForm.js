@@ -54,7 +54,6 @@ const CommentForm = ({ setShouldCommentsUpdate, shouldCommentsUpdate, setNewComm
                     onChange={formik.handleChange}
                     />
                     { isSubmitClicked && <p className="validation-info">{formik.errors.name}</p>}
-                        
                 </div>
                 <div className="input-container">
                     <input 
