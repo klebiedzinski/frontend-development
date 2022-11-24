@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 /* base styles */
 * {
   margin: 0;
   font-family: "Quicksand";
   color: #333;
 }
+
 .navbar {
   padding: 20px;
   display: flex;
@@ -14,37 +14,65 @@
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
+
 .navbar h1 {
   color: #f1356d;
 }
+
 .navbar .links {
   margin-left: auto;
 }
+
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
 }
+
 .navbar a:hover {
   color: #f1356d;
 }
-.content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+
+.header {
+  color: #070606;
+  font-family: arial, sans-serif;
+  font-size: 8ch;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-bottom: 1px;
 }
 
-/* blog previews / list */
-.blog-preview {
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2vw;
+  width: 80%;
+  margin-inline: auto;
+  background-color: rgb(247, 247, 247);
+  padding: 3%;
 }
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+.teams .team {
+  padding: 1%;
+  flex-basis: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
 }
-.blog-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
+.teams .team .team-title {
+  width: 40%;
 }
+.teams .team .team-title h1 {
+  text-align: center;
+  margin-bottom: 1%;
+}
+.teams .team .team-img {
+  text-align: center;
+}
+.teams .team .team-img img {
+  width: 40%;
+}
+.teams .team .team-img img:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=index.css.map */
