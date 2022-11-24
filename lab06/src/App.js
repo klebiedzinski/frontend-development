@@ -1,18 +1,49 @@
 import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import Navbar from "./Components/Navbar";
 import Teams from "./Components/Teams";
 import Home from "./Components/Home";
-import Team from './Components/Team';
 import NotFound from './Components/NotFound';
+import TeamOverview from './Components/TeamOverview';
+import { Team } from './Data';
+import teampopowiczki_pic from "./Data/Teams_pics/teampopowiczki_pic.jpg"
+import teamwieniec_pic from "./Data/Teams_pics/teamwieniec_pic.jpg"
+import ypo_pic from "./Data/Teams_pics/ypo_pic.jpg"
+import przecina_pic from "./Data/Teams_pics/przecina_pic.jpg"
+import astrodunkteam_pic from "./Data/Teams_pics/astrodunkteam_pic.jpg"
 function App() {
+
+      //DATA
+      const popowiczki = new Team({
+        name: "Popowiczki",
+        src: teampopowiczki_pic
+    })
+    const wieniec = new Team({
+        name: "Wieniec",
+        src: teamwieniec_pic
+    })
+    const przecina = new Team({
+        name: "Przecina",
+        src: przecina_pic
+    })
+    const ypo = new Team({
+        name: "YPO",
+        src: ypo_pic
+    })
+    const astrodunkteam = new Team({
+        name: "Astrodunk",
+        src: astrodunkteam_pic
+    })
+
+    const [teams,setTeams] = useState([popowiczki,wieniec,przecina,ypo,astrodunkteam])
   return (
     <>
     <Navbar/>
     <Routes>
       <Route path="/" element={ <Home/> }/>
       <Route path={"/teams"}> 
-      <Route index element={<Teams/>}/>
-        <Route path=":name" element={<Team/>}/>
+      <Route index element={<Teams teams={teams}/>}/>
+        <Route path=":team" element={<TeamOverview teams={teams}/>}/>
       </Route>
 
       <Route path='*' element={<NotFound/>}/>
