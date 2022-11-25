@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [newCommentFromForm, setNewCommentFromForm] = useState(null)
   const [shouldCommentsUpdate, setShouldCommentsUpdate] = useState(false)
-  const [comments, setComments] = useState(null)
+  const [comments, setComments] = useState([])
 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/comments")
@@ -31,7 +31,7 @@ function App() {
         newComment={newCommentFromForm} 
         setNewComment={setNewCommentFromForm}
       />
-      {comments && <CommentsList comments={comments} />}
+      {comments.length && <CommentsList comments={comments} />}
     </div>
   );
 }

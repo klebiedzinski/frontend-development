@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import wbl from "../Data/Teams_pics/wbl.jpg"
+
 const Navbar = () => {
     return ( 
         <nav className="navbar">
-            <h1>WBL</h1>
+            <img src={wbl} alt="" srcset="" />
             <div className="links">
                 <Link to="/">Home</Link>
                 <Link to="/teams">Teams</Link>

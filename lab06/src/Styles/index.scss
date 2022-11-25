@@ -10,20 +10,21 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 80vw;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 2px solid #f2f2f2;
 }
-.navbar h1 {
-  color: #f1356d;
+.navbar img {
+  width: 10%;
 }
 .navbar .links {
   margin-left: auto;
 }
 .navbar a {
-  margin-left: 16px;
+  margin-left: 1vw;
   text-decoration: none;
   padding: 6px;
+  font-size: 2vw;
 }
 .navbar a:hover {
   color: #f1356d;
@@ -46,7 +47,13 @@
     margin-inline: auto;
     background-color: rgb(247, 247, 247);
     padding: 3%;
+    a{
+      flex-basis: 45%;
+      text-decoration: none;
+    }
     .team{
+        height: 100%;
+        width: 100%;
         padding: 1%;
         flex-basis: 45%;
         display: flex;
@@ -71,4 +78,9 @@
             }
         }
     }
+    
+}
+
+.addTeamForm{
+  float: right;
 }

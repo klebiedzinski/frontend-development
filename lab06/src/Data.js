@@ -1,3 +1,5 @@
+import wbl from "./Data/Teams_pics/wbl.jpg"
+
 const { v4: uuidv4 } = require('uuid');
 
 export class Team {
@@ -5,7 +7,7 @@ export class Team {
         this.name = config.name || 0;
         this.id = config.id || uuidv4();
         this.image = new Image();
-        this.image.src = config.src || "";
+        this.image.src = config.src || wbl;
         this.players = config.players || []
     }
 }
