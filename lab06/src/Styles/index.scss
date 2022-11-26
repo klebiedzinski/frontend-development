@@ -6,24 +6,32 @@
   font-family: "Quicksand";
   color: #333;
 }
+body{
+  background-color: whitesmoke;
+}
 .navbar {
-  padding: 20px;
+  padding-inline: 20px;
   display: flex;
   align-items: center;
   max-width: 80vw;
+  min-height: 10vh;
   margin: 0 auto;
   border-bottom: 2px solid #f2f2f2;
+  background-color: white;
 }
 .navbar img {
-  width: 10%;
+  width: 10vw;
 }
 .navbar .links {
   margin-left: auto;
 }
 .navbar a {
+  @media only screen and (max-width: 700px) {
+    font-size: 4vw;
+  }
   margin-left: 1vw;
   text-decoration: none;
-  padding: 6px;
+  padding-inline: 6px;
   font-size: 2vw;
 }
 .navbar a:hover {
@@ -36,30 +44,43 @@
     font-size: 8ch;
     font-weight: bold;
     margin-left: 5%;
-    margin-bottom: 1px
+    margin-bottom: 1px;
+    @media only screen and (max-width: 900px) {
+      text-align: center;
+    }
 }
 .teams{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2vw;
+    justify-content: space-between;
     width: 80%;
     margin-inline: auto;
-    background-color: rgb(247, 247, 247);
+    background-color: whitesmoke;
     padding: 3%;
     a{
       flex-basis: 45%;
       text-decoration: none;
+      margin: 1%;
+      @media only screen and (max-width: 900px) {
+        flex-basis: 90%;
+        margin-inline: auto;
+      }
+
     }
     .team{
+      transition: all 500ms ease; 
+      &:hover{
+        transform: skew(-1deg);      
+      }
+        margin: 2vh;
         height: 100%;
         width: 100%;
-        padding: 1%;
-        flex-basis: 45%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid black;
+        justify-content: center;
+        background-color: white;
+        border-radius: 3%;
         .team-title{
             width: 40%;
             h1{
@@ -71,7 +92,8 @@
         .team-img{
             text-align: center;
             img{
-                width: 40%;
+                width: 15vw;
+                padding: 1vw;
                 &:hover{
                     cursor: pointer;
                 }
@@ -84,3 +106,95 @@
 .addTeamForm{
   float: right;
 }
+
+.teamOverview{
+  margin-top: 1vh;
+  width: 80vw;
+  padding: 20px;
+  margin-inline: auto;
+  background-color: white;
+  .teamInfo{
+    .teamInfo-header{
+      h1{
+        text-align: center;
+        padding-bottom: 1vw;
+      }
+      border-bottom: 2px solid whitesmoke;
+    }
+    .teamInfo-container{
+      @media only screen and (max-width: 900px) {
+        flex-wrap: wrap;
+        .teamLogo, .contact, .teamImage{
+          flex-basis: 90%;
+        }
+      }
+      padding-top: 1vw;
+      display: flex;
+      justify-content: space-around;
+      .teamLogo{
+        max-width: fit-content;
+        img{
+          width: 20vw;
+        }
+        
+      }
+      .contact{
+        width: 20%;
+        h1{
+          text-align: center;
+        }
+      }
+      .teamImage{
+        border: 1px solid whitesmoke;
+        width: 50%;
+        margin:auto;
+        text-align: center;
+      }
+    }
+    
+  }
+  .roster{
+    text-align: center;
+    padding: 1vw;
+    margin-top: 5vh;
+  }
+  
+  .teamPlayers{
+    a{
+      text-decoration: none;
+      transition: all 500ms ease; 
+
+      &:hover{
+        transform: skew(-1deg);      
+
+      }
+    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   .player{
+    flex-basis: 30%;
+    @media only screen and (max-width: 900px) {
+      flex-basis: 40%;
+    }
+    @media only screen and (max-width: 700px) {
+      flex-basis: 80%;
+      margin-inline: auto;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 1vh;
+     img{
+       width: 40%;
+     }
+
+   }
+  }
+}
+.playerDetails{
+  margin-top: 10vh;
+  display: grid;
+  justify-content: center;
+}
+
