@@ -4,7 +4,9 @@ import Teams from "./Components/Teams";
 import Home from "./Components/Home";
 import TeamOverview from './Components/TeamOverview';
 import NotFound from './Components/NotFound';
-import {Team, Player} from './Data'
+import PlayersList from './Components/PlayersList'
+import PlayerForm from './Components/PlayerForm';
+import {Team, Player} from './Data';
 import { useState } from 'react';
 
 //DATA SRCS
@@ -51,6 +53,8 @@ const [teams,setTeams] = useState([popowiczki,wieniec,przecina,ypo,astrodunkteam
       <Route index element={<Teams teams={teams} setTeams={setTeams}/>}/>
         <Route path=":name">
           <Route index element={<TeamOverview teams={teams} setTeams={setTeams}/>}/>
+          <Route path='PlayersList' element={<PlayersList teams={teams}/>}></Route>
+          <Route path='PlayerForm' element={<PlayerForm teams={teams} setTeams={setTeams}/>}></Route>
           <Route path=':player_id' element={<PlayerDetails teams={teams} />}/>
         </Route>
       </Route>

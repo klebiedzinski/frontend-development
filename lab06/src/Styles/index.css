@@ -123,6 +123,9 @@ body {
   margin-inline: auto;
   background-color: white;
 }
+.teamOverview a {
+  margin: 1%;
+}
 .teamOverview .teamInfo .teamInfo-header {
   border-bottom: 2px solid whitesmoke;
 }
@@ -206,4 +209,9 @@ body {
   margin-top: 10vh;
   display: grid;
   justify-content: center;
+}
+
+h2 {
+  background-color: gray;
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */

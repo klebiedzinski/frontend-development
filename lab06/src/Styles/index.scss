@@ -108,6 +108,9 @@ body{
 }
 
 .teamOverview{
+  a{
+    margin: 1%;
+  }
   margin-top: 1vh;
   width: 80vw;
   padding: 20px;
@@ -196,5 +199,10 @@ body{
   margin-top: 10vh;
   display: grid;
   justify-content: center;
+}
+
+h2{
+  background-color: gray;
+  text-align: center;
 }
 

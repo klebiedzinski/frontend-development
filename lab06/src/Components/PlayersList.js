@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
-const PlayersList = ({team}) => {
+const PlayersList = ({teams}) => {
+    const {name} = useParams();
+    const team = teams.find(team => team.name === name)
     return ( 
         <div className="playersList">
         <h1 className="roster">Roster - w zadaniu lab06 jako notesList</h1>

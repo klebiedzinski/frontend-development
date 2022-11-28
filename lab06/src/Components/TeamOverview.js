@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import PlayerForm from "./PlayerForm";
 import PlayersList from "./PlayersList";
 const TeamOverview = ({teams, setTeams}) => {
     const {name} = useParams()
-    console.log(teams)
     const targetTeam = teams.find(el => el.name===name)
     return ( 
         <>
@@ -23,7 +23,9 @@ const TeamOverview = ({teams, setTeams}) => {
                     </div>
                 </div>
             </div>
-            <PlayersList team={targetTeam}/>
+            <PlayersList teams={teams}/>
+            <Link to={`/teams/${targetTeam.name}/PlayerForm`}>Add player</Link>
+            <Link to={`/teams/${targetTeam.name}/PlayersList`}>Players</Link>
         </div>
         </>
      );
